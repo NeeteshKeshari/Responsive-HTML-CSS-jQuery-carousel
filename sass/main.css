@@ -1,0 +1,374 @@
+/* Reset CSS Start Here */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Libre Franklin", sans-serif;
+}
+
+button {
+  font-family: "Libre Franklin", sans-serif;
+  background: none;
+  border: 1px solid #998242;
+  padding: 3px 24px;
+  cursor: pointer;
+  color: #998242;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+h1 {
+  font-size: 24px;
+  line-height: 32px;
+  color: #333;
+  font-weight: 100;
+}
+
+h2 {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 600;
+}
+
+/* Reset CSS End Here */
+/* Component Variables */
+/* Component CSS Start Here*/
+.page_container {
+  margin-top: 64px;
+}
+
+.wrapper {
+  width: 1280px;
+  margin: auto;
+  position: relative;
+}
+
+.tt-head {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: center;
+}
+.tt-head button {
+  font-size: 12px;
+  white-space: nowrap;
+}
+.tt-head button:hover {
+  background: #998242;
+  color: #fff;
+}
+
+#slider-container {
+  width: 1220px;
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+}
+#slider-container #slider {
+  display: flex;
+  width: 1000%;
+  height: 100%;
+  transition: all 0.5s;
+}
+#slider-container #slider .slide span {
+  color: white;
+  font-size: 150px;
+}
+
+.tt-caurosel {
+  display: flex;
+  gap: 24px;
+  margin-top: 24px;
+}
+.tt-caurosel .tt-caurosel-slide {
+  position: relative;
+  width: 255px;
+  height: 241px;
+  background: transparent linear-gradient(180deg, #998242 0%, rgba(153, 130, 66, 0.7019607843) 100%) 0% 0% no-repeat padding-box;
+  padding: 15px;
+  color: #fff;
+}
+.tt-caurosel .tt-caurosel-slide:hover {
+  background: transparent linear-gradient(180deg, #49B1BB 0%, rgba(73, 177, 187, 0.7019607843) 100%) 0% 0% no-repeat padding-box;
+}
+.tt-caurosel .tt-caurosel-slide sub {
+  display: block;
+  font-size: 20px;
+  line-height: 28px;
+  margin-top: 8px;
+}
+.tt-caurosel .tt-caurosel-slide .tt-rating-wrapper {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  height: 16px;
+}
+.tt-caurosel .tt-caurosel-slide .tt-rating-count {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 100;
+}
+.tt-caurosel .tt-caurosel-slide .tt-slide-bottom {
+  position: absolute;
+  width: calc(100% - 30px);
+  bottom: 15px;
+}
+.tt-caurosel .tt-caurosel-slide .tt-wishlist {
+  width: 35px;
+  cursor: pointer;
+}
+.tt-caurosel .tt-caurosel-slide .tt-wishlist .heart {
+  width: 35px;
+  height: 27px;
+  background-size: 30px;
+}
+.tt-caurosel .tt-caurosel-slide .tt-wishlist .heart-full {
+  background: url("../assest/heart_icon.svg") no-repeat center;
+}
+.tt-caurosel .tt-caurosel-slide .tt-wishlist.active .heart-full {
+  background: url("../assest/heart_icon_filled.svg") no-repeat center;
+}
+.tt-caurosel .tt-caurosel-slide .tt-progress-wrapper {
+  font-size: 16px;
+  font-weight: 100;
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+.tt-caurosel .tt-caurosel-slide .tt-progress-data {
+  display: flex;
+  justify-content: space-between;
+}
+.tt-caurosel .tt-caurosel-slide .tt-progress-indicator {
+  padding: 0;
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 5px;
+}
+.tt-caurosel .tt-caurosel-slide .tt-full-bar {
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  filter: opacity(0.37);
+}
+.tt-caurosel .tt-caurosel-slide .tt-filled-bar {
+  position: absolute;
+  float: left;
+  min-width: 1%;
+  background: #fff;
+  height: 2px;
+  top: 0;
+}
+
+.tt-wishlist:not(.active):hover .heart-full {
+  -webkit-animation: pulse 1s ease-out infinite;
+          animation: pulse 1s ease-out infinite;
+}
+
+.tt-wishlist.animate .heart-full {
+  -webkit-animation: heart 0.35s;
+          animation: heart 0.35s;
+}
+
+.tt-carousel-btn {
+  position: absolute;
+  top: 50%;
+  height: 19px;
+  cursor: pointer;
+  width: 19px;
+  z-index: 2;
+  padding: 15px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  background: url(../assest/chevron.svg) no-repeat center;
+  background-color: #fff;
+  background-size: 12px 25px;
+}
+.tt-carousel-btn:hover {
+  box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.2);
+}
+.tt-carousel-btn.inactive {
+  display: none;
+}
+.tt-carousel-btn:first-of-type {
+  transform: rotate(0deg);
+  left: 0px;
+}
+.tt-carousel-btn:last-of-type {
+  transform: rotate(180deg);
+  right: 0px;
+}
+
+/* Heart Icon Animation Start Here */
+@-webkit-keyframes heart {
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(1.2);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  35% {
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  75% {
+    transform: scale(1.1);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  100% {
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+@keyframes heart {
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(1.2);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  35% {
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  75% {
+    transform: scale(1.1);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  100% {
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+@-webkit-keyframes pulse {
+  0% {
+    opacity: 1;
+    transform-origin: center center;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.09);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform-origin: center center;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.09);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* iPad Landscape View*/
+@media only screen and (min-width: 1100px) and (max-width: 1246px) {
+  .wrapper {
+    width: 1007px;
+  }
+  #slider-container {
+    width: 937px;
+  }
+  #slider-container .tt-caurosel-slide {
+    width: 266px;
+  }
+}
+/* Responsive Styling Start Here */
+@media only screen and (max-width: 1100px) {
+  .wrapper {
+    width: 680px;
+  }
+  #slider-container {
+    width: 617px;
+  }
+  #slider-container .tt-carousel-btn {
+    width: 20px;
+    height: 20px;
+  }
+  #slider-container .tt-carousel-btn:first-of-type {
+    left: 10px;
+  }
+  #slider-container .tt-carousel-btn:last-of-type {
+    right: 10px;
+  }
+  .tt-caurosel {
+    gap: 16px;
+  }
+  .tt-caurosel .tt-caurosel-slide {
+    width: 266px;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .wrapper {
+    width: 315px;
+    padding-top: 33px;
+  }
+  .page_container {
+    margin-top: 0px;
+  }
+  .tt-head {
+    align-items: start;
+  }
+  #slider-container {
+    width: 315px;
+    padding: 0;
+  }
+  .tt-caurosel {
+    gap: 0;
+  }
+  .tt-caurosel .tt-caurosel-slide {
+    width: 285px;
+  }
+  .tt-caurosel .tt-caurosel-slide .tt-slide-bottom {
+    width: calc(100% - 70px);
+  }
+  .tt-carousel-btn {
+    height: 31px;
+    width: 31px;
+    background-size: 8px 16px;
+    background-position: center;
+    padding: 0;
+  }
+  .tt-carousel-btn:hover {
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+  }
+  .tt-carousel-btn:first-of-type {
+    top: inherit;
+    left: 0;
+    bottom: -44px;
+  }
+  .tt-carousel-btn:last-of-type {
+    top: inherit;
+    right: 0;
+    bottom: -44px;
+  }
+}/*# sourceMappingURL=main.css.map */

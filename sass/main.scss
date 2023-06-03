@@ -1,0 +1,390 @@
+/* Reset CSS Start Here */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+button {
+    font-family: 'Libre Franklin', sans-serif;
+    background: none;
+    border: 1px solid #998242;
+    padding: 3px 24px;
+    cursor: pointer;
+    color: #998242;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+h1 {
+    font-size: 24px;
+    line-height: 32px;
+    color: #333;
+    font-weight: 100;
+}
+
+h2 {
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 600;
+}
+/* Reset CSS End Here */
+
+/* Component Variables */
+$slideBg: transparent linear-gradient(180deg, #998242 0%, #998242B3 100%) 0% 0% no-repeat padding-box;
+$slideBgHover: transparent linear-gradient(180deg, #49B1BB 0%, #49B1BBB3 100%) 0% 0% no-repeat padding-box;
+$primaryColor: #fff;
+$heartEmptyIcon: url('../assest/heart_icon.svg') no-repeat center;
+$heartFillIcon: url('../assest/heart_icon_filled.svg') no-repeat center;
+$arrowIcon: url(../assest/chevron.svg) no-repeat center;
+
+/* Component CSS Start Here*/
+.page_container {
+    margin-top: 64px;
+}
+
+.wrapper {
+    width: 1280px;
+    margin: auto;
+    position: relative;
+}
+
+.tt-head {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: center;
+
+    button {
+        font-size: 12px;
+        white-space: nowrap;
+
+        &:hover {
+            background: #998242;
+            color: $primaryColor;
+        }
+    }
+}
+
+#slider-container {
+    width: 1220px;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+
+    #slider {
+        display: flex;
+        width: 1000%;
+        height: 100%;
+        transition: all .5s;
+
+        .slide span {
+            color: white;
+            font-size: 150px;
+        }
+    }
+}
+
+.tt-caurosel {
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+
+    .tt-caurosel-slide {
+        position: relative;
+        width: 255px;
+        height: 241px;
+        background: $slideBg;
+        padding: 15px;
+        color: $primaryColor;
+
+        &:hover {
+            background: $slideBgHover;
+        }
+
+        sub {
+            display: block;
+            font-size: 20px;
+            line-height: 28px;
+            margin-top: 8px;
+        }
+
+        .tt-rating-wrapper {
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            height: 16px;
+        }
+
+        .tt-rating-count {
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: 100;
+        }
+
+        .tt-slide-bottom {
+            position: absolute;
+            width: calc(100% - 30px);
+            bottom: 15px;
+        }
+
+        .tt-wishlist {
+            width: 35px;
+            cursor: pointer;
+
+            .heart {
+                width: 35px;
+                height: 27px;
+                background-size: 30px;
+            }
+
+            .heart-full {
+                background: $heartEmptyIcon;
+            }
+
+            &.active .heart-full {
+                background: $heartFillIcon;
+            }
+        }
+
+        .tt-progress-wrapper {
+            font-size: 16px;
+            font-weight: 100;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+
+        .tt-progress-data {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tt-progress-indicator {
+            padding: 0;
+            width: 100%;
+            height: 2px;
+            overflow: hidden;
+            position: relative;
+            margin-top: 5px;
+        }
+
+        .tt-full-bar {
+            width: 100%;
+            height: 2px;
+            background: $primaryColor;
+            filter: opacity(0.37);
+        }
+
+        .tt-filled-bar {
+            position: absolute;
+            float: left;
+            min-width: 1%;
+            background: $primaryColor;
+            height: 2px;
+            top: 0;
+        }
+    }
+}
+
+.tt-wishlist:not(.active):hover {
+    .heart-full {
+        animation: pulse 1s ease-out infinite;
+    }
+}
+
+.tt-wishlist.animate {
+    .heart-full {
+        animation: heart 0.35s;
+    }
+}
+
+.tt-carousel-btn {
+    position: absolute;
+    top: 50%;
+    height: 19px;
+    cursor: pointer;
+    width: 19px;
+    z-index: 2;
+    padding: 15px;
+    box-shadow: 0px 3px 6px rgb(0 0 0 / 20%);
+    border-radius: 50%;
+    background: $arrowIcon;
+    background-color: $primaryColor;
+    background-size: 12px 25px;
+
+    &:hover {
+        box-shadow: 0px 5px 3px rgb(0 0 0 / 20%);
+    }
+
+    &.inactive {
+        display: none;
+    }
+
+    &:first-of-type {
+        transform: rotate(0deg);
+        left: 0px
+    }
+
+    &:last-of-type {
+        transform: rotate(180deg);
+        right: 0px;
+    }
+}
+
+/* Heart Icon Animation Start Here */
+@keyframes heart {
+    0% {
+        transform: scale(1);
+        transform-origin: center center;
+        animation-timing-function: ease-out;
+    }
+
+    10% {
+        transform: scale(1.2);
+        animation-timing-function: ease-in;
+    }
+
+    35% {
+        transform: scale(1);
+        animation-timing-function: ease-out;
+    }
+
+    75% {
+        transform: scale(1.1);
+        animation-timing-function: ease-in;
+    }
+
+    100% {
+        transform: scale(1);
+        animation-timing-function: ease-out;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform-origin: center center;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.09);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+/* iPad Landscape View*/
+@media only screen and (min-width: 1100px) and (max-width: 1246px) {
+    .wrapper {
+        width: 1007px;
+    }
+    #slider-container {
+        width: 937px;
+    }
+    #slider-container {
+        .tt-caurosel-slide {
+            width: 266px;
+        }
+    }
+}
+
+/* Responsive Styling Start Here */
+@media only screen and (max-width: 1100px) {
+    .wrapper {
+        width: 680px;
+    }
+
+    #slider-container {
+        width: 617px;
+    }
+
+    #slider-container {
+        .tt-carousel-btn {
+            width: 20px;
+            height: 20px;
+
+            &:first-of-type {
+                left: 10px
+            }
+
+            &:last-of-type {
+                right: 10px;
+            }
+        }
+    }
+
+    .tt-caurosel {
+        gap: 16px;
+
+        .tt-caurosel-slide {
+            width: 266px;
+        }
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .wrapper {
+        width: 315px;
+        padding-top: 33px;
+    }
+
+    .page_container {
+        margin-top: 0px;
+    }
+
+    .tt-head {
+        align-items: start;
+    }
+
+    #slider-container {
+        width: 315px;
+        padding: 0;
+    }
+
+    .tt-caurosel {
+        gap: 0;
+
+        .tt-caurosel-slide {
+            width: 285px;
+        }
+
+        .tt-caurosel-slide .tt-slide-bottom {
+            width: calc(100% - 70px);
+        }
+    }
+
+    .tt-carousel-btn {
+        height: 31px;
+        width: 31px;
+        background-size: 8px 16px;
+        background-position: center;
+        padding: 0;
+
+        &:hover {
+            box-shadow: 0px 3px 6px rgb(0 0 0 / 20%);
+        }
+
+        &:first-of-type {
+            top: inherit;
+            left: 0;
+            bottom: -44px;
+        }
+
+        &:last-of-type {
+            top: inherit;
+            right: 0;
+            bottom: -44px;
+        }
+    }
+}
